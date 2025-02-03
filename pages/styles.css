@@ -1,0 +1,308 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    overflow-x: hidden;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove o highlight azul de clique em dispositivos móveis e navegadores */
+.transfer-option:focus,
+.transfer-option:active,
+.send-button:focus,
+.send-button:active,
+.action-box:focus,
+.action-box:active {
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent; /* Remove o highlight azul no mobile */
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.right {
+    display: flex;
+    gap: 20px;
+}
+
+.right img {
+    width: 25px;
+    height: 25px;
+}
+
+/* Seção de Saldos e Extratos */
+.balance-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.balance-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+.statement-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FF9900;
+}
+
+/* Seção de Ações Rápidas */
+.quick-actions-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.quick-actions-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Container Externo com Scroll Horizontal */
+.currencies-container, .quick-actions-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+    border-bottom: 2px solid black; /* Rodapé azul horizontal */
+}
+
+.currencies, .quick-actions {
+    display: flex;
+    gap: 15px;
+    min-width: 100%;
+}
+
+/* Containers de Moeda */
+.currency-box {
+    background-color: #121212;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.currency-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Ícones */
+.currency-icon {
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.currency-image {
+    width: 35px;
+    height: 35px;
+}
+
+.currency-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.currency-value {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    height: 0.5px;
+    background-color: gray;
+    margin: 10px 0;
+}
+
+.currency-type {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Containers de Ações Rápidas */
+.action-box {
+    background-color: #121212;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.action-box img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+}
+
+.action-box span {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Seção Fast Transfer */
+.fast-transfer-section {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.pix-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.fast-transfer-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Container Principal da Transferência */
+.fast-transfer-container {
+    margin-top: 15px;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Input e Botão - Ajustando Largura */
+.transfer-input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;  /* Reduzi a largura total */
+    max-width: 400px;  /* Limitando para não expandir demais */
+}
+
+.transfer-input-group input {
+    flex-grow: 1;
+    padding: 14px;  /* Ajuste fino no padding */
+    border-radius: 8px;
+    border: none;
+    background-color: #1A1A1A;
+    color: white;
+    font-size: 16px;
+    margin-right: 8px;
+    min-width: 0;
+}
+
+.send-button {
+    background-color: orange;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;  /* Ajustado */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;  /* Reduzi para manter proporcional */
+    height: 50px;
+}
+
+.send-button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Ajustando os 3 botões para ficarem menores */
+.transfer-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.transfer-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 6px;  /* Reduzi o espaço interno */
+    min-width: 80px; /* Diminuindo o tamanho geral */
+}
+
+.transfer-option img {
+    width: 30px;  /* Reduzi o tamanho da imagem */
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.transfer-option span {
+    font-size: 14px;  /* Texto um pouco menor */
+    font-weight: 600;
+    color: white;
+}
+
+/* Linha separadora vertical */
+.separator {
+    width: 2px;
+    height: 50px;  /* Reduzi a altura da linha */
+    background-color: gray;
+    margin: 0 10px;
+}

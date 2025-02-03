@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" translate="yes">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transfer value</title>
+    <style>
+        body {
+    margin: 10px;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.container {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.question {
+    font-size: 28px;
+    font-weight: bold;
+    width: 60%;
+}
+
+.balance {
+    font-size: 16px;
+    color: gray;
+    margin-top: 5px;
+}
+
+.amount {
+    font-weight: bold;
+    color: white;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.currency {
+    font-size: 26px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.input-field {
+    font-size: 26px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    outline: none;
+}
+
+.send-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: gray;
+    border-radius: 16%;
+    padding: 15px;
+}
+
+.send-icon {
+    width: 25px;
+    height: 25px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="/img/close.png" alt="Fechar" class="icon close-icon">
+        <img src="/img/help3.png" alt="Ajuda" class="icon help-icon">
+    </div>
+
+    <div class="container">
+        <div class="question">How much is your transfer?</div>
+        <div class="balance">
+            Balance available for transfer 
+            <span class="amount">R$ 0,0</span>.
+        </div>
+        <div class="input-container">
+            <span class="currency">R$</span>
+            <input type="text" class="input-field" value="0,0" />
+        </div>
+    </div>
+
+    <div class="send-button">
+        <img src="/img/send.png" alt="Enviar" class="send-icon">
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", async function () {
+    // Fecha a página e volta para a anterior
+    document.querySelector(".close-icon").addEventListener("click", function () {
+        window.history.back();
+    });
+
+    // Redireciona para o link do Telegram
+    document.querySelector(".help-icon").addEventListener("click", function () {
+        window.location.href = "https://t.me/vinniievs";
+    });
+
+    // Obtém os IDs do usuário remetente e destinatário
+    const userId = sessionStorage.getItem("loggedInUserId")?.toString();
+    const transferId = sessionStorage.getItem("transferId")?.toString();
+    let userSaldo = 0;
+
+    if (userId && !isNaN(userId)) {
+        try {
+            const response = await fetch(`/database/${userId}.json`);
+            if (response.ok) {
+                const userData = await response.json();
+                if (userData.saldo !== undefined) {
+                    userSaldo = parseFloat(userData.saldo);
+                    document.querySelector(".amount").textContent = `R$ ${userSaldo.toFixed(2)}`;
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao carregar os dados do usuário:", error);
+        }
+    }
+
+    // Elementos
+    const inputField = document.querySelector(".input-field");
+    const sendButton = document.querySelector(".send-button");
+
+    // Botão começa desativado
+    let isButtonActive = false;
+    sendButton.style.pointerEvents = "none";
+
+    inputField.addEventListener("input", function () {
+        let value = inputField.value.replace(/[^\d]/g, "");
+
+        let integerPart = value.slice(0, -2) || "0";
+        let decimalPart = value.slice(-2);
+
+        if (decimalPart.length === 1) decimalPart += "0";
+        integerPart = integerPart.replace(/^0+/, "");
+
+        if (integerPart === "") integerPart = "0";
+
+        integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+        let formattedValue = parseFloat(integerPart.replace(/\./g, "") + "." + decimalPart);
+
+        // Impede valores maiores que 1000 e trata como se o usuário tivesse digitado
+        if (formattedValue > 1000) {
+            formattedValue = 1000;
+            inputField.value = "1.000,00";
+        } else {
+            inputField.value = `${integerPart},${decimalPart}`;
+        }
+
+        // Atualiza o botão de envio conforme o valor inserido
+        if (formattedValue > 0 && formattedValue <= userSaldo) {
+            sendButton.style.backgroundColor = "#FF9900";
+            sendButton.style.pointerEvents = "auto";
+            isButtonActive = true;
+        } else {
+            sendButton.style.backgroundColor = "";
+            sendButton.style.pointerEvents = "none";
+            isButtonActive = false;
+        }
+    });
+
+    sendButton.addEventListener("click", function () {
+        if (!isButtonActive) return;
+
+        let transferValue = parseFloat(inputField.value.replace(/[^\d,]/g, "").replace(",", "."));
+
+        if (!transferId || transferId === "" || transferId === userId) {
+            alert("Você não pode transferir para sua própria conta.");
+            return;
+        }
+
+        if (transferValue > userSaldo) {
+            alert("Você não tem saldo suficiente para essa transferência.");
+            return;
+        }
+
+        // Salva no sessionStorage o valor da transferência no momento do redirecionamento
+        sessionStorage.setItem("transferValue", transferValue.toFixed(2));
+
+        window.location.href = "/transfer2.html";
+    });
+});
+
+</script>
+</html>

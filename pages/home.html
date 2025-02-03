@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" translate="yes">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>User Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="left">
+            <span class="greeting">Bom dia,</span>
+            <span class="username">User name</span>
+        </div>
+        <div class="right">
+            <img src="/img/help3.png" alt="Help">
+            <img src="/img/view2.png" alt="View">
+            <img src="/img/user.png" alt="Face">
+        </div>
+    </header>
+
+    <section class="balance-section">
+        <span class="balance-title">Saldos</span>
+        <span class="statement-title">Extratos</span>
+    </section>
+
+    <section class="currencies-container">
+        <div class="currencies">
+            <div class="currency-box">
+                <div class="currency-header">
+                    <div class="currency-icon" style="background-image: url('/img/brazil.png');"></div>
+                    <span class="currency-name">Real</span>
+                </div>
+                <span class="currency-value">R$ 0,0</span>
+                <hr>
+                <span class="currency-type">Moeda Brasileira</span>
+            </div>
+
+            <div class="currency-box">
+                <div class="currency-header">
+                    <div class="currency-icon" style="background-image: url('/img/dolar.png');"></div>
+                    <span class="currency-name">Dólar</span>
+                </div>
+                <span class="currency-value">US$ 0,0</span>
+                <hr>
+                <span class="currency-type">Moeda Americana</span>
+            </div>
+
+            <div class="currency-box">
+                <div class="currency-header">
+                    <img src="/img/cash.png" class="currency-image" alt="BrightCoins">
+                    <span class="currency-name">BrightCoins</span>
+                </div>
+                <span class="currency-value">BC$ 0,0</span>
+                <hr>
+                <span class="currency-type">Moeda Virtual</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Ações Rápidas -->
+    <section class="quick-actions-section">
+        <span class="quick-actions-title">Ações Rápidas</span>
+    </section>
+
+    <section class="quick-actions-container">
+        <div class="quick-actions">
+            <div class="action-box">
+                <img src="/img/pay.png" alt="Pay">
+                <span>Pay</span>
+            </div>
+            <div class="action-box">
+                <img src="/img/database.png" alt="Database">
+                <span>Database</span>
+            </div>
+            <div class="action-box">
+                <img src="/img/info.png" alt="Information">
+                <span>Information</span>
+            </div>
+            <div class="action-box">
+                <img src="/img/more.png" alt="More">
+                <span>More</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Transferência Rápida -->
+    <section class="fast-transfer-section">
+        <img src="/img/pix.png" class="pix-icon" alt="Pix">
+        <span class="fast-transfer-title">Fast Transfer</span>
+    </section>
+
+    <section class="fast-transfer-container">
+        <div class="transfer-box">
+            <div class="transfer-input-group">
+                <input type="number" placeholder="ID de transferência">
+                <button class="send-button">
+                    <img src="/img/send.png" alt="Send">
+                </button>
+            </div>
+
+            <div class="transfer-options">
+                <div class="transfer-option">
+                    <img src="/img/pagar.png" alt="Transfer Now">
+                    <span>Transfer Now</span>
+                </div>
+                <div class="separator"></div>
+                <div class="transfer-option">
+                    <img src="/img/help3.png" alt="Payment help">
+                    <span> Payment Help</span>
+                </div>
+                <div class="separator"></div>
+                <div class="transfer-option">
+                    <img src="/img/receive.png" alt="Receiven payment">
+                    <span>Receive Payment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
