@@ -2,5 +2,5 @@
     "titulo": "Transfer failures",
     "subtitulo": "When attempting to transfer to another user, you must use the user ID available in the bot or upon login. This is the same transfer ID.",
     "titulo2": "Possible solution:",
-    "subtitulo2": "If the transfer does not occur, check if the **ID** is valid and that it is not your own (**self-transfers are not allowed, and in this case, nothing will happen**).n/n/Each user has a 10-digit numerical ID. If everything is correct but the transfer still fails, check your connection or whether you are making too many attempts. Do not overload the system with multiple retries. Try a few times, and if unsuccessful, try again later or contact support for a detailed resolution."
+    "subtitulo2": "If the transfer does not occur, check if the **ID** is valid and that it is not your own (**self-transfers are not allowed, and in this case, nothing will happen**).n/n/Each user has a 10-digit numerical ID. If everything is correct but the transfer still fails, check your connection or whether you are making too many attempts. **Do not overload the system with multiple retries**. Try a few times, and if unsuccessful, try again later or contact support for a detailed resolution."
 }
