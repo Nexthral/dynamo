@@ -1,0 +1,6 @@
+{
+    "titulo": "Errores de transferencia",
+    "subtitulo": "Al intentar realizar una transferencia a otro usuario, debes usar el ID del usuario disponible en el bot o al iniciar sesión. Este es el mismo ID de transferencia.",
+    "titulo2": "Posible solución:",
+    "subtitulo2": "Si la transferencia no ocurre, verifica que el ID sea válido y que no sea el tuyo (**no se permiten transferencias a la misma cuenta, en cuyo caso no pasará nada**).n/n/Cada usuario tiene un ID de 10 caracteres numéricos. Si todo está correcto, pero la transferencia sigue fallando, revisa tu conexión o si estás realizando demasiados intentos seguidos. No satures el sistema con múltiples intentos. Intenta unas pocas veces y, si no puedes, vuelve a intentarlo más tarde o contacta con el soporte para una revisión más profunda."
+}

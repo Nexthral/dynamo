@@ -1,0 +1,6 @@
+{
+    "titulo": "Falhas de transferência",
+    "subtitulo": "Ao tentar transferir para outro usuário, use o ID disponível no bot ou ao fazer login. Esse é o mesmo ID de transferência.",
+    "titulo2": "Possível solução:",
+    "subtitulo2": "Se a transferência não ocorrer, verifique se o ID é válido e se não é o seu próprio (**não é permitido transferir para a mesma conta, e nesse caso, nada acontece**).n/n/Cada usuário tem um ID numérico de 10 caracteres. Se tudo estiver correto, mas a falha persistir, confira sua conexão e evite tentativas excessivas. **Não sobrecarregue o sistema com várias tentativas seguidas**. Faça poucas tentativas e, se não conseguir, tente mais tarde ou contate o suporte para uma solução detalhada."
+}

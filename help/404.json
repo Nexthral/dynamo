@@ -1,0 +1,6 @@
+{
+    "titulo": "Erro de conexão ou 404",
+    "subtitulo": "Em caso de erro de conexão, fetch ou 404 (not found).",
+    "titulo2": "Possível solução:",
+    "subtitulo2": "Erros de fetch acontecem por falha no nosso servidor. Caso isso ocorra, entre em contato com o suporte.n/n/Para erro de conexão ou 404, verifique se não está usando VPN, APN, proxy ou qualquer programa que altere sua conexão. Tente desconectar e reconectar à internet, sair e entrar na sessão novamente. Se o erro persistir, **contate o suporte e explique o que ocorre.**"
+}
