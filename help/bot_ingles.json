@@ -1,0 +1,4 @@
+{
+    "titulo": "Bot stopped responding",
+    "subtitulo": "The bot system handles multiple commands and functions, from /start, which checks your registration or registers you, to /profile, which displays your database.n/n/First, check if the command entered is valid and correct. We cannot know if you are typing the command incorrectly, like typing /start incorrectly. If the command is valid and the bot still doesn’t respond, we regret to inform you that our servers do not run 24 hours a day.n/n/Try again within the Brasília time zone, between **10 AM and 11 PM**."
+}
